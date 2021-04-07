@@ -1,0 +1,866 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@font-face {
+    font-family: HelveticaNeueLTPro;
+    src: url(fonts/HelveticaNeueLTPro-Lt.otf); 
+}
+@font-face {
+    font-family: HelveticaNeueLTPro-Md;
+    src: url(fonts/HelveticaNeueLTPro-Md.otf); 
+}
+@font-face {
+    font-family: HelveticaNeueLTPro-Roman;
+    src: url(fonts/HelveticaNeueLTPro-Roman.otf); 
+}
+@font-face {
+    font-family: Merriweather-LightItalic;
+    src: url(fonts/Merriweather-LightItalic.ttf); 
+}
+@font-face {
+    font-family: Montserrat-Light;
+    src: url(fonts/Montserrat-Light.ttf); 
+}
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url(fonts/Montserrat-Regular.ttf); 
+}
+body, html{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+header{
+    width: 100%;
+    height: 40px;
+}
+header .menu{
+    display: flex;
+    justify-content: center;
+}
+header .menu .logo{
+    justify-content: center;
+    margin: 0 1rem;
+    width: 40px;
+    cursor: pointer;
+}
+header .menu .logo img{
+    width: 100%;
+}
+header .menu .links{
+    display: flex;
+    padding: 0;
+}
+header .menu .links li{
+    text-align: center;
+    display: flex;
+    margin: 0 1rem;
+    color: #979797;
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.2s;
+}
+header .menu .links li:hover{color: #000}
+.active_link{color: #000 !important}
+header .mobile_menu{
+    display: block;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    color: #979797;
+    background: #fff;
+    transform: translateX(-200%);
+    z-index: 100;
+    transition: 0.5s;
+}
+header  .mobile_menu .links__mobile li{
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.mobile{display: none}
+
+
+
+.quit{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}
+.quit .quit_container{
+    position: relative;
+    display: block;
+    width: 28px;
+    height: 28px;
+}
+.quit .quit_container .line{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    height: 3px;
+    background: #979797;
+}
+.quit .quit_container .line-1{transform: translateY(-50%) rotate(45deg)}
+.quit .quit_container .line-2{transform: translateY(-50%) rotate(-45deg)}
+
+
+.open_mob_menu{display: none}
+.open_mob_menu .open{
+    position: relative;
+    display: block;
+    width: 28px;
+    height: 28px;
+}
+.open_mob_menu .open .line{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    height: 3px;
+    background: #979797;
+}
+.open_mob_menu .open .line-1{top: 20%}
+.open_mob_menu .open .line-2{top: 50%}
+.open_mob_menu .open .line-3{top: 80%}
+
+
+
+.main-window{
+    position: relative;
+    height: calc(100vh - 40px);
+}
+.main-window .text-block{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    text-align: center;
+    justify-items: center;
+}
+.main-window .text-block .heading{
+    font-family: HelveticaNeueLTPro, sans-serif;
+    font-weight: normal;
+    margin: 0;
+}
+.main-window .text-block .discript{
+    font-family: Merriweather-LightItalic, sans-serif;
+    font-size: 12px;
+    margin: 0;
+}
+.main-window .text-block .button{
+    font-family: Montserrat-Regular, sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 10px;
+    margin-top: 2rem;
+    padding: 1rem 3rem;
+    background: #fff;
+    border: 1px solid #000;
+    width: fit-content;
+    cursor: pointer;
+    transition: 0.2s all;
+}
+.main-window .text-block .button:hover{
+    background: #000;
+    color: #fff;
+}
+.main-window .swipe-up{
+    display: grid;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 1rem;
+    cursor: pointer;
+}
+
+.main-window .swipe-up .round{
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    margin: 5px 0;
+}
+
+.main-window .swipe-up .round-1{
+    background: #ccc;
+    animation: 1s ease-in 0s infinite swipe-1;
+}
+.main-window .swipe-up .round-2{
+    background: #ccc;
+    animation: 1s ease-in 0s infinite swipe-2;
+}
+.main-window .swipe-up .round-3{
+    background: #ccc;
+    animation: 1s ease-in 0s infinite swipe-3;
+}
+
+.about_us{
+    background: #1d1d1d;
+    color: #fefefe;
+    display: grid;
+}
+.about_us .blocks{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+}
+.about_us h1{
+    margin: 0;
+    text-align: right;
+    font-weight: normal;
+    font-family: HelveticaNeueLTPro-Roman, sans-serif;
+}
+.about_us .left-block h1{text-align: right}
+.about_us .right-block h1{text-align: left}
+.about_us p{
+    font-size: 12px;
+    color: #b7b7b7;
+    margin: 0.5rem 0 0 0;
+    font-family: Montserrat-Light, sans-serif;
+}
+.about_us .left-block{
+    padding: 1rem;
+    padding-bottom: 20rem;
+    box-sizing: border-box;
+    border-right: 2px solid #fff;
+    justify-self: right;
+}
+.about_us .right-block{
+    padding: 1rem;
+    padding-bottom: 20rem;
+    box-sizing: border-box;
+    border-left: 2px solid #fff;
+}
+.about_us .right-block .block ._text.discript, .about_us .left-block .block ._text.discript{
+    width: 310px;
+}
+.about_us .right-block .block ._text, .about_us .left-block .block ._text{
+    opacity: 0;
+    transition: 0.4s;
+}
+.about_us .right-block .block ._text{transform: translateX(10%)}
+.about_us .left-block .block ._text{transform: translateX(-10%)}
+.about_us .block{
+    position: relative;
+    padding: 0 1.8rem;
+    height: 90px;
+    transition: 0.2s;
+}
+.about_us .left-block .block-1{margin-top: 14rem}
+.about_us .right-block .block-1{margin-top: 28rem}
+.about_us .left-block .block-2{margin-top: 26rem}
+.about_us .right-block .block-2{margin-top: 28rem}
+.about_us .point{
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    transform: translateY(70%);
+    background: #1d1d1d;
+    border-radius: 100%;
+    border: 3px solid #fff;
+    transition: 0.2s;
+}
+.about_us .point._active{
+    width: 20px;
+    height: 20px;
+    transform: translateY(30%);
+    background: #fff;
+}
+.about_us .left-block .block-1 .point, .about_us .left-block .block-2 .point{right: -1.65rem}
+.about_us .right-block .block-1 .point, .about_us .right-block .block-2 .point{left: -1.65rem}
+.about_us .point._active__r{left: -1.9rem !important}
+.about_us .point._active__l{right: -1.9rem !important}
+
+.buildings{
+    margin-top: -2.5rem;
+    margin-left: 2px;
+    height: 10rem;
+}
+.buildings img{
+    width: 100%;
+    height: 120%;
+    object-fit: cover;
+}
+._show__block{
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+
+.team{
+    display: grid;
+    justify-content: center;
+}
+.team .heading{
+    margin-top: 4rem;
+}
+.team .heading h1{
+    text-align: center;
+    font-weight: normal;
+    font-family: HelveticaNeueLTPro, sans-serif;
+    margin: 0;
+    font-size: 24px;
+    color: #1d1d1d;
+}
+.team .heading p{
+    text-align: center;
+    font-family: Merriweather-LightItalic, sans-serif;
+    margin: 0;
+    color: #888888;
+    margin-left: 10px;
+    font-size: 12px;
+}
+.team .people{
+    margin-top: 5rem;
+    font-family: HelveticaNeueLTPro-Roman, sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    overflow-y: hidden;
+}
+.team .people img{width: 120px}
+.team .people .worker{
+    display: grid;
+    justify-items: center;
+    align-content: start;
+    margin: 5rem;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: 1s;
+}
+.team .people .worker-2{
+    margin-top: 0 !important;
+}
+.team .people .worker p{
+    margin: 0;
+    text-align: center;
+}
+.team .people .worker .name{
+    margin-top: 0.5rem;
+    font-size: 16px;
+    color: #1d1d1d;
+}
+.team .people .worker .discription{
+    font-size: 10px;
+    color: #e4e4e4;
+}
+.team .people .worker .links{
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    column-gap: 0.7rem;
+}
+.team .people .worker .links img{
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.team .people .worker .links img:hover{
+    filter: invert(100);
+}
+._show__workers{
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+
+
+.container_services_blog{
+    position: relative;
+    padding: 4rem 0;
+}
+.container_services_blog .main__container{
+}
+.container_services_blog .bg__block{
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background: #1d1d1d;
+    z-index: -1;
+    transform: skewY(-5deg);
+    margin: 4rem 0;
+}
+.container_services_blog .heading{
+    margin-top: 6rem;
+}
+.container_services_blog .heading h1{
+    text-align: center;
+    font-weight: normal;
+    font-family: HelveticaNeueLTPro, sans-serif;
+    margin: 0;
+    font-size: 24px;
+    color: #fff;
+}
+.container_services_blog .heading p{
+    text-align: center;
+    font-family: Merriweather-LightItalic, sans-serif;
+    margin: 0;
+    color: #777;
+    font-size: 11px;
+}
+.container_services_blog .services .services_blocks{
+    display: flex;
+    margin-top: 10rem;
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.container_services_blog .services .services_blocks .block{
+    width: 250px;
+    padding: 1rem;
+    opacity: 0;
+    transition: 1s all;
+    z-index: 7;
+}
+.container_services_blog .services .services_blocks .block-1{transform: translateY(100%)}
+.container_services_blog .services .services_blocks .block-2{transform: translateY(150%)}
+.container_services_blog .services .services_blocks .block-3{transform: translateY(200%)}
+.container_services_blog .services .services_blocks .block img{
+    width: 120px;
+    height: 120px;
+}
+.container_services_blog .services_blocks .block .title{
+    text-align: center;
+    margin: 1rem 0 0 0;
+    color: #fff;
+    font-weight: normal;
+    font-size: 22px;
+}
+.container_services_blog .services_blocks .block .discription{
+    text-align: center;
+    margin: 1rem 0 0 0;
+    color: #383838;
+    font-weight: normal;
+    font-size: 12px;
+}
+._show__services{
+    opacity: 1 !important;
+    transform: translate(0) !important;
+}
+
+
+
+.container_services_blog .main__container .blog{
+    margin-top: -3rem;
+    position: relative;
+    display: grid;
+    justify-items: center;
+    perspective: 800px;
+    height: 30rem;
+    transform: skewY(-5deg) translateY(8rem);
+    overflow: hidden;
+}
+.container_services_blog .main__container .bg_blog{
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 20rem;
+    background: linear-gradient(180deg, #1d1d1d, #0000);
+    z-index: 5;
+}
+.container_services_blog .main__container .blog .posts{
+    position: absolute;
+    top: -10rem;
+    width: 50%;
+    text-align: justify;
+    opacity: 0;
+    transform: skewY(5deg) rotateX(30deg) translateY(350px);
+    transition: 0.5s;
+    animation: 40s linear 0s infinite posts_preview;
+}
+.container_services_blog .main__container .blog .posts .post{
+    margin: 5rem 0;
+}
+.container_services_blog .main__container .blog .posts .post .name{
+    color: #2c2c2c;
+    font-size: 28px;
+}
+.container_services_blog .main__container .blog .posts .post .message{
+    color: #4f4f4f;
+    font-size: 18px;
+}
+.container_services_blog .main__container .blog .button_visit{
+    font-family: HelveticaNeueLTPro-Md, sans-serif;
+    position: absolute;
+    padding: 1rem 2rem;
+    height: fit-content;
+    top: 50%;
+    transform: skewY(5deg) translateY(-50%);
+    background: #fff;
+    font-weight: bold;
+    font-size: 12px;
+    color: #000;
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.2s;
+}
+.container_services_blog .main__container .blog .button_visit:hover{
+    background: #ccc;
+}
+
+
+.container .contact_us{
+    margin-top: 6rem;
+    padding-top: 4rem;
+    display: grid;
+    justify-items: center;
+}
+.container .contact_us .heading{
+    text-align: center;
+}
+.container .contact_us .heading .title{
+    font-size: 24px;
+    margin: 0;
+    color: #1d1d1d;
+    font-family: HelveticaNeueLTPro, sans-serif;
+}
+.container .contact_us .heading .discription{
+    font-size: 12px;
+    margin: 0;
+    color: #888888;
+    font-family: Merriweather-LightItalic, sans-serif;
+}
+.container .contact_us .contacts{
+    display: grid;
+    margin-top: 3rem;
+    font-family: HelveticaNeueLTPro, sans-serif;
+    color: #888888;
+    width: 580px;
+    font-size: 12px;
+    justify-self: center;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.container .contact_us .contacts .contact{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+.container .contact_us .contacts .contact p{
+    margin: 8px;
+}
+.container .contact_us .contacts .contact .tel{
+    width: 14px;
+    height: 21px;
+  }
+.container .contact_us .contacts .contact .gps{
+    width: 16px;
+    height: 21px;
+}
+.container .contact_us .contacts .contact .mail{
+    width: 19px;
+    height: 13px;
+}
+  
+.container .contact_us .form_contact_us{
+    margin-top: 7rem;
+    display: grid;
+    width: 580px;
+}
+.container .contact_us .form_contact_us input{
+    outline: none;
+    border: 1px solid #888;
+    font-family: HelveticaNeueLTPro, sans-serif;
+    padding: 0.8rem 0;
+    margin: 0.5rem 0;
+    text-align: center;
+    font-size: 12px;
+}
+.container .contact_us .form_contact_us textarea{
+    outline: none;
+    border: 1px solid #888;
+    font-family: HelveticaNeueLTPro, sans-serif;
+    padding: 1rem;
+    height: 10rem;
+    margin: 0.5rem 0;
+    font-size: 12px;
+    resize: none;
+}
+.container .contact_us .form_contact_us button{
+    outline: none;
+    border: none;
+    background: #1d1d1d;
+    font-family: HelveticaNeueLTPro-Md, sans-serif;
+    color: #fff;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.container .contact_us .form_contact_us button:hover{
+    background: #000;
+}
+
+
+footer{
+    margin: 5rem 0 2rem 0;
+    text-align: center;
+    font-size: 11px;
+    color: #888;
+    font-family: HelveticaNeueLTPro-Roman, sans-serif;
+}
+
+
+
+@media(min-height: 860px){
+    .about_us .left-block .block-1{margin-top: 18rem}
+    .about_us .right-block .block-1{margin-top: 32rem}
+    .about_us .left-block .block-2{margin-top: 30rem}
+    .about_us .right-block .block-2{margin-top: 32rem}
+}
+@media(min-height: 980px){
+    .about_us .left-block .block-1{margin-top: 22rem}
+    .about_us .right-block .block-1{margin-top: 36rem}
+    .about_us .left-block .block-2{margin-top: 34rem}
+    .about_us .right-block .block-2{margin-top: 36rem}
+}
+@media(min-height: 1100px){
+    .about_us .right-block .block-1{margin-top: 40rem}
+    .about_us .left-block .block-2{margin-top: 38rem}
+    .about_us .right-block .block-2{margin-top: 40rem}
+}
+@media(min-height: 1240px){
+    .about_us .right-block .block-1{margin-top: 44rem}
+    .about_us .left-block .block-2{margin-top: 42rem}
+    .about_us .right-block .block-2{margin-top: 44rem}
+}
+@media(min-height: 1350px){
+    .about_us .right-block .block-1{margin-top: 50rem}
+    .about_us .left-block .block-2{margin-top: 48rem}
+    .about_us .right-block .block-2{margin-top: 50rem}
+}
+
+@media(min-width: 1600px){
+.container .contact_us .contacts .contact .tel{
+    width: 19px;
+    height: 27px;
+  }
+.container .contact_us .contacts .contact .gps{
+    width: 22px;
+    height: 27px;
+}
+.container .contact_us .contacts .contact .mail{
+    width: 26px;
+    height: 17px;
+}
+    .about_us p{font-size: 18px}
+    .about_us h1{font-size: 38px}
+    .about_us .block{width: 460px}
+    header .menu .links li{font-size: 18px}
+    header .menu .logo{width: 60px}
+    .main-window .text-block .heading{font-size: 38px}
+    .main-window .text-block .discript{font-size: 18px}
+    .main-window .text-block .button{font-size: 14px}
+    .team .heading h1{font-size: 38px}
+    .team .heading p{font-size: 18px}
+    .team .people .worker .name{font-size: 20px}
+    .team .people .worker .discription{font-size: 12px}
+    .team .people img{width: 150px}
+    .team .people .worker .links img{
+        width: 24px;
+        height: 24px;
+    }
+    .container_services_blog .heading h1{font-size: 36px}
+    .container_services_blog .heading p{font-size: 13px}
+    .container_services_blog .services_blocks .block .title{font-size: 28px}
+    .container_services_blog .services_blocks .block .discription{font-size: 14px}
+    .container_services_blog .services .services_blocks .block img{
+        width: 150px;
+        height: 150px;
+    }
+    .container_services_blog .main__container .blog .posts .post .name{font-size: 36px}
+    .container_services_blog .main__container .blog .posts .post .message{font-size: 28px}
+    .container_services_blog .main__container .blog .button_visit{font-size: 16px}
+    .container .contact_us .heading .title{font-size: 32px}
+    .container .contact_us .heading .discription{font-size: 15px}
+    .container .contact_us .contacts{font-size: 15px}
+    .container .contact_us .form_contact_us input{font-size: 15px}
+    .container .contact_us .form_contact_us textarea{font-size: 15px}
+    .container .contact_us .form_contact_us button{font-size: 15px}
+    footer{font-size: 13px}
+}
+@media(min-width: 2200px){
+    .container .contact_us .contacts .contact .tel{
+        width: 25px;
+        height: 37px;
+      }
+    .container .contact_us .contacts .contact .gps{
+        width: 27px;
+        height: 37px;
+    }
+    .container .contact_us .contacts .contact .mail{
+        width: 36px;
+        height: 24px;
+    }
+    .about_us p{font-size: 26px}
+    .about_us h1{font-size: 46px}
+    .about_us .block{width: 520px}
+    header .menu .links li{font-size: 26px}
+    header .menu .logo{width: 90px}
+    .main-window .text-block .heading{font-size: 46px}
+    .main-window .text-block .discript{font-size: 26px}
+    .main-window .text-block .button{font-size: 22px}
+    .team .heading h1{font-size: 46px}
+    .team .heading p{font-size: 26px}
+    .team .people .worker .name{font-size: 28px}
+    .team .people .worker .discription{font-size: 20px}
+    .team .people img{width: 190px}
+    .team .people .worker .links img{
+        width: 32px;
+        height: 32px;
+    }
+    .container_services_blog .heading h1{font-size: 44px}
+    .container_services_blog .heading p{font-size: 21px}
+    .container_services_blog .services_blocks .block .title{font-size: 36px}
+    .container_services_blog .services_blocks .block .discription{font-size: 22px}
+    .container_services_blog .services .services_blocks .block img{
+        width: 190px;
+        height: 190px;
+    }
+    .container_services_blog .main__container .blog .posts .post .name{font-size: 44px}
+    .container_services_blog .main__container .blog .posts .post .message{font-size: 36px}
+    .container_services_blog .main__container .blog .button_visit{font-size: 24px}
+    .container .contact_us .heading .title{font-size: 40px}
+    .container .contact_us .heading .discription{font-size: 23px}
+    .container .contact_us .contacts{font-size: 23px}
+    .container .contact_us .form_contact_us input{font-size: 23px}
+    .container .contact_us .form_contact_us textarea{font-size: 23px}
+    .container .contact_us .form_contact_us button{font-size: 23px}
+    footer{font-size: 21px}
+    .container .contact_us .contacts{width: 960px}
+    .container .contact_us .form_contact_us{width: 960px}
+}
+
+@media(max-width: 1024px){
+    .container_services_blog .main__container .blog .posts{width: 60%}
+    .container_services_blog .main__container .blog{margin-top: -5rem}
+    .about_us .block{padding: 0 calc(0px + (32) * ((100vw - 768px)/(1024 - 768)))}
+    .about_us .right-block .block ._text.discript, .about_us .left-block .block ._text.discript{width: calc(200px + (310 - 200) * ((100vw - 500px)/(1024 - 500)))}
+    .team .people .worker{margin: 5rem calc(16px + (80 - 16) * ((100vw - 500px)/(1024 - 500)))}
+    .about_us p{font-size: calc(10px + (14 - 10) * ((100vw - 500px)/(1024 - 500)))}
+    .about_us h1{font-size: calc(22px + (24 - 22) * ((100vw - 500px)/(1024 - 500)))}
+    .main-window .text-block .heading{font-size: calc(24px + (32 - 24) * ((100vw - 500px)/(1024 - 500)))}
+    .main-window .text-block .discript{font-size: calc(10px + (12 - 10) * ((100vw - 500px)/(1024 - 500)))}
+    .main-window .text-block .button{font-size: calc(8px + (10 - 8) * ((100vw - 500px)/(1024 - 500)))}
+    .container .contact_us .contacts{
+        text-align: center;
+        font-size: calc(11px + (15 - 11) * ((100vw - 500px)/(1024 - 500)))}
+    
+}
+@media(max-width: 850px){
+    .container_services_blog .services .services_blocks{margin-top: calc(80px + (112 - 80) * ((100vw - 500px)/(850 - 500)))}
+    .container_services_blog .services_blocks .block .title{font-size: calc(16px + (22 - 16) * ((100vw - 500px)/(850 - 500)))}
+    .container_services_blog .services_blocks .block .discription{font-size: calc(11px + (12 - 11) * ((100vw - 500px)/(850 - 500)))}
+}
+@media(max-width: 650px){
+    .container_services_blog .main__container .blog .posts{width: 70%}
+    .container_services_blog .services .services_blocks{margin-top: 5rem}
+}
+@media(max-width: 580px){
+    .container .contact_us .form_contact_us, 
+    .container .contact_us .contacts{
+        width: 100%;
+        padding: 0 1rem;
+        box-sizing: border-box;
+    }
+    .container_services_blog .main__container .blog .posts{width: 75%}
+}
+@media(max-width: 550px){
+    .container .contact_us .form_contact_us, 
+    .container .contact_us .contacts{
+        width: 100%;
+        padding: 0 1rem;
+        box-sizing: border-box;
+    }
+    .open_mob_menu{display: block}
+    header .menu{display: none}
+    .mobile{
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        padding: 0.5rem;
+    }
+    .mobile .logo img{height: 100%}
+    .mobile .logo{height: 30px}
+}
+@media(max-width: 500px){
+    .container_services_blog .main__container .blog .posts{width: 80%}
+    .container_services_blog .services .services_blocks{display: grid}
+    .container_services_blog .services_blocks .block .title{font-size: calc(16px + (22 - 16) * ((100vw - 300px)/(500 - 300)))}
+    .container_services_blog .services_blocks .block .discription{font-size: calc(11px + (12 - 11) * ((100vw - 300px)/(500 - 300)))}
+    
+    .container_services_blog .services .services_blocks .block img{
+        width: calc(120px + 70 * ((100vw - 300px)/200));
+        height: calc(120px + 70 * ((100vw - 300px)/200));
+    }
+    .team .people{
+        margin-top: 1rem;
+        grid-template-columns: 1fr;
+    }
+    .team .people img{width: 180px}
+    .team .people .worker{
+        margin: 3rem 0 !important;
+    }
+}
+@media(max-width: 470px){
+    .about_us .right-block .block ._text.discript, .about_us .left-block .block ._text.discript{
+        position: absolute;
+        top: 40px;
+        background: #000;
+        padding: 0.5rem;
+    }
+    .about_us .right-block .block ._text.discript{left: -87%}
+    .about_us .left-block .block ._text.discript{left: 0%}
+    .container_services_blog .main__container .blog .posts{width: 90%}
+}
+
+@media(max-width: 320px){.container_services_blog .main__container .blog .posts{width: 100%}}
+
+
+
+@keyframes swipe-1{
+    0%{background: #ccc}
+    14%{background: #ccc}
+    15%{background: #bbb}
+    30%{background: #aaa}
+    45%{background: #bbb}
+    60%{background: #ccc}
+    100%{background: #ccc}
+}
+@keyframes swipe-2{
+    0%{background: #ccc}
+    29%{background: #ccc}
+    30%{background: #bbb}
+    45%{background: #aaa}
+    60%{background: #bbb}
+    75%{background: #ccc}
+    100%{background: #ccc}
+}
+@keyframes swipe-3{
+    0%{background: #ccc}
+    44%{background: #ccc}
+    45%{background: #bbb}
+    60%{background: #aaa}
+    75%{background: #bbb}
+    90%{background: #ccc}
+    100%{background: #ccc}
+}
+@keyframes posts_preview{
+    0%{transform: skewY(5deg) rotateX(30deg) translateY(350px)}
+    1%{opacity: 1}
+    81%{opacity: 1}
+    92%{transform: skewY(5deg) rotateX(30deg) translateY(-750px)}
+    91%{opacity: 0}
+    97%{transform: skewY(5deg) rotateX(30deg) translateY(350px)}
+    100%{opacity: 0}
+}
